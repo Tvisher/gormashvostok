@@ -1,0 +1,32 @@
+// Size
+$mainFontSize: 18px;
+$mainFontWeight: 400;
+$mainLineHeight: 120%;
+
+$desktopWidth: 1280px;
+$smDesktopWidth: 980px;
+$tableWidth: 768px;
+$phoneWidth: 480px;
+$smPhoneWidth: 380px;
+
+// Main color
+$brand-black: #000;
+$brand-primary: #ddcfc6;
+$brand-gray: #c4c4c4;
+$brand-red: #df2407;
+
+// Font
+$mainFont: "Ubuntu";
+$mainFontColor: $brand-black;
+
+@mixin pruning($c) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $c;
+  -webkit-box-orient: vertical;
+  line-clamp: $c;
+  box-orient: vertical;
+}

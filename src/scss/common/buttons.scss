@@ -1,0 +1,43 @@
+.btn {
+  font-size: 16px;
+  font-family: $mainFont;
+  font-weight: 400;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 57px;
+  line-height: 140%;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    // border-color: ;
+    background-color: $brand-red;
+    color: #fff;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.primaryBtn {
+  background-color: #00abc2;
+  color: #fff;
+}
+
+.ghostBtn {
+  background-color: transparent;
+  color: $brand-primary;
+  border-color: $brand-primary;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
