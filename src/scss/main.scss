@@ -683,6 +683,10 @@ header {
 }
 
 @media (max-width: 576px) {
+  .solutions,
+  .about-section {
+    border-left-width: 5px;
+  }
   .is-mobile-header {
     display: block;
   }
