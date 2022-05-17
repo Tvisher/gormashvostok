@@ -2653,6 +2653,10 @@ header {
     margin: auto;
   }
 
+  .link-item__descr {
+    text-align: center;
+  }
+
   .header__top-nav-list > li {
     flex: 0 0 100%;
   }
