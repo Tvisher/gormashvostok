@@ -2589,6 +2589,7 @@ header {
 }
 
 .dropdown-inner::before {
+  transition: transform 0.3s ease-in-out;
   content: "";
   right: -10px;
   position: absolute;
@@ -2619,6 +2620,14 @@ header {
 @media (max-width: 992px) {
   .footer {
     padding: 50px 0;
+  }
+
+  .header__logo {
+    margin: auto;
+  }
+
+  .header__slogan {
+    text-align: center;
   }
 }
 
@@ -2835,6 +2844,10 @@ header {
 
   .dropdown-inner {
     padding-right: 30px !important;
+  }
+
+  .dropdown-inner:hover::before {
+    transform: rotate(90deg) translateX(-50%);
   }
 
   .dropdown-inner::before {

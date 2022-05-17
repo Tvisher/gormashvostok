@@ -607,6 +607,7 @@ header {
   padding-right: 25px;
   position: relative;
   &::before {
+    transition: transform 0.3s ease-in-out;
     content: "";
     right: -10px;
     position: absolute;
@@ -628,6 +629,15 @@ header {
     top: inherit;
     bottom: 0;
     transform: translate(0%, 100%);
+  }
+}
+
+@media (max-width: 992px) {
+  .header__logo {
+    margin: auto;
+  }
+  .header__slogan {
+    text-align: center;
   }
 }
 
@@ -834,6 +844,11 @@ header {
   }
 
   .dropdown-inner {
+    &:hover {
+      &::before {
+        transform: rotate(90deg) translateX(-50%);
+      }
+    }
     padding-right: 30px !important;
     &::before {
       width: 22px;
