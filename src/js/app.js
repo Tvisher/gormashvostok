@@ -147,4 +147,11 @@ document.body.addEventListener('click', (e) => {
 });
 
 
+$("[data-open-drop]").click(function () {
+    $(this).parent().toggleClass('opened');
+    $(this).next().slideToggle("slow", function () {
+    });
+});
+
+
 
