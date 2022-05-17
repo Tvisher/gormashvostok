@@ -386,6 +386,14 @@ header {
     &:after {
       display: none;
     }
+    svg path {
+      transition: fill 0.3s ease-in-out;
+    }
+    &:hover {
+      svg path {
+        fill: #ff0000;
+      }
+    }
   }
   .swiper-rtl .swiper-button-next,
   .swiper-button-next {
@@ -578,6 +586,9 @@ header {
     }
   }
 }
+.header__top-nav-list li a {
+  width: fit-content;
+}
 
 .dropdown-inner {
   .dropdown__content {
@@ -592,6 +603,7 @@ header {
       visibility: visible;
     }
   }
+
   padding-right: 25px;
   position: relative;
   &::before {
@@ -600,9 +612,9 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 21px;
-    height: 21px;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='19' viewBox='0 0 16 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M16 9.5L0.25 0.406734L0.25 18.5933L16 9.5Z' fill='%23C4C4C4'/%3e%3c/svg%3e ");
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='15' viewBox='0 0 8 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.3998 4.88079L1.8098 0.290792C1.62244 0.104542 1.36899 0 1.1048 0C0.840616 0 0.587165 0.104542 0.399802 0.290792C0.306074 0.383755 0.23168 0.494357 0.180911 0.616216C0.130142 0.738075 0.104004 0.868781 0.104004 1.00079C0.104004 1.1328 0.130142 1.26351 0.180911 1.38537C0.23168 1.50723 0.306074 1.61783 0.399802 1.71079L4.9998 6.29079C5.09353 6.38376 5.16793 6.49436 5.21869 6.61622C5.26946 6.73808 5.2956 6.86878 5.2956 7.00079C5.2956 7.13281 5.26946 7.26351 5.21869 7.38537C5.16793 7.50723 5.09353 7.61783 4.9998 7.71079L0.399802 12.2908C0.211499 12.4778 0.105184 12.7319 0.104246 12.9973C0.103308 13.2626 0.207825 13.5175 0.394803 13.7058C0.581781 13.8941 0.835903 14.0004 1.10127 14.0014C1.36663 14.0023 1.6215 13.8978 1.8098 13.7108L6.3998 9.12079C6.9616 8.55829 7.27716 7.7958 7.27716 7.00079C7.27716 6.20579 6.9616 5.44329 6.3998 4.88079V4.88079Z' fill='%23374957'/%3e%3c/svg%3e ");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -656,7 +668,14 @@ header {
   }
 }
 
+.is-mobile-header {
+  display: none;
+}
+
 @media (max-width: 576px) {
+  .is-mobile-header {
+    display: block;
+  }
   .dropdown-start .dropdown__content {
     width: 100%;
   }
@@ -726,9 +745,9 @@ header {
     // .header__head {
     //   display: none;
     // }
-    .header__nameplate-wrapper {
-      order: 5;
-    }
+    // .header__nameplate-wrapper {
+    //   order: 5;
+    // }
     .header__bottom-menu {
       padding: 10px 0;
     }
@@ -750,5 +769,83 @@ header {
 
   .header__head {
     padding-top: 20px;
+  }
+
+  .mobile-menu-btn {
+    border-radius: 4px;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background-color: $brand-red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 12px;
+    position: relative;
+    z-index: 10;
+    span {
+      background-color: #fff;
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &.active {
+      span:nth-of-type(1) {
+        transform: rotate(45deg) translate3d(5px, 5px, 0);
+      }
+
+      span:nth-of-type(2) {
+        transform: scale(0);
+      }
+
+      span:nth-of-type(3) {
+        transform: rotate(-45deg) translate3d(5px, -5px, 0);
+      }
+    }
+  }
+
+  .is-mobile-header__wrapper {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header__logo {
+      height: 50px;
+      margin: 0;
+    }
+  }
+
+  .header-wrap {
+    position: fixed;
+    z-index: 5;
+    background-color: #fff;
+    overflow: auto;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .dropdown-inner {
+    padding-right: 30px !important;
+    &::before {
+      width: 22px;
+      height: 22px;
+      padding: 5px;
+      right: 0;
+      &:hover {
+        & > .dropdown__content {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
   }
 }
